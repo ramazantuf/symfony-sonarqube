@@ -8,7 +8,8 @@ pipeline {
           def scannerHome = tool 'sonar'
         }
         withSonarQubeEnv('sq') {
-          sh "sudo apt install composer && composer install"
+          sh "curl -sS https://getcomposer.org/installer | php"
+          sh "mv composer.phar /usr/local/bin/composer"
           sh "${scannerHome}/bin/sonar-scanner"
         }
       }
