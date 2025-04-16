@@ -23,7 +23,7 @@ jobs:
 
     steps:
       # Authenticate to the container registry
-      - name: Authenticate to registry ${{ env.REGISTRY }} ${{ env.IMAGE_NAME}}
+      - name: Authenticate to registry ${{ env.REGISTRY }} ${{ github.repository.name }}
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
