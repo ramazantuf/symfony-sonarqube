@@ -2,9 +2,12 @@ pipeline {
   agent none
   stages {
     stage("Build & SonarQube Analysis") {
+      environment {
+        scannerHome = tool 'sonar'
+      }
       agent any
       steps {
-        def scannerHome = tool 'sonar'
+        
         withSonarQubeEnv('sq') {
           sh "composer install"
           sh "${scannerHome}/bin/sonar-scanner"
