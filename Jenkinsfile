@@ -5,10 +5,10 @@ pipeline {
       agent any
       steps {
         script {
-          scannerHome = tool 'sonar'
+          def scannerHome = tool 'sonar'
         }
         withSonarQubeEnv('sq') {
-          sh "composer install"
+          sh "apt install composer && composer install"
           sh "${scannerHome}/bin/sonar-scanner"
         }
       }
