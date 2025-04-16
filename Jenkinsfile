@@ -8,7 +8,7 @@ pipeline {
           scannerHome = tool 'sonar'
         }
         withSonarQubeEnv('sq') {
-          sh "echo Ramazan"
+          sh "composer install"
           sh "${scannerHome}/bin/sonar-scanner"
         }
       }
