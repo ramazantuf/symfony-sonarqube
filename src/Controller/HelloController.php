@@ -12,5 +12,4 @@ class HelloController
 		// geri dönüş
 		return new Response('<html><body>Hello Ramazan</body></html>');
 	}
-
 }
